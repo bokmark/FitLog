@@ -1,0 +1,131 @@
+.form-group {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 16rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 72rpx;
+  background: var(--color-bg-input);
+  border-radius: var(--radius-sm);
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepper-btn {
+  width: 72rpx;
+  height: 72rpx;
+  background: var(--color-bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.stepper-btn:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.stepper-btn:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.stepper-value {
+  width: 120rpx;
+  height: 72rpx;
+  background: var(--color-bg-card-light);
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  border-left: 2rpx solid var(--color-border);
+  border-right: 2rpx solid var(--color-border);
+}
+
+.media-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.media-preview {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.media-thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-card-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.play-icon {
+  font-size: 48rpx;
+  color: var(--color-primary);
+}
+
+.media-type-label {
+  font-size: 20rpx;
+  color: var(--color-text-secondary);
+}
+
+.media-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx dashed var(--color-border);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.media-add-icon {
+  font-size: 48rpx;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.media-add-text {
+  font-size: 20rpx;
+  color: var(--color-text-muted);
+  margin-top: 8rpx;
+  text-align: center;
+}
+
+.save-btn {
+  margin-top: var(--spacing-xl);
+  width: 100%;
+}

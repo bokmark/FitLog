@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- Name -->
+  <view class="form-group">
+    <view class="form-label">动作名称</view>
+    <input class="form-input" value="{{form.name}}" placeholder="如：平板卧推"
+      bindinput="onNameInput" />
+  </view>
+
+  <!-- Sets -->
+  <view class="form-group">
+    <view class="form-label">组数</view>
+    <view class="stepper">
+      <view class="stepper-btn" bindtap="onSetsDecrease">-</view>
+      <input class="stepper-value" type="number" value="{{form.sets}}" bindinput="onSetsChange" />
+      <view class="stepper-btn" bindtap="onSetsIncrease">+</view>
+    </view>
+  </view>
+
+  <!-- Reps -->
+  <view class="form-group">
+    <view class="form-label">每组次数</view>
+    <input class="form-input" value="{{form.reps}}" placeholder="如：8-12 或 15"
+      bindinput="onRepsInput" />
+  </view>
+
+  <!-- Weight -->
+  <view class="form-group">
+    <view class="form-label">参考重量</view>
+    <input class="form-input" value="{{form.weight}}" placeholder="如：60kg 或 自重"
+      bindinput="onWeightInput" />
+  </view>
+
+  <!-- Rest -->
+  <view class="form-group">
+    <view class="form-label">组间休息（秒）</view>
+    <input class="form-input" type="number" value="{{form.restSeconds}}" placeholder="如：90"
+      bindinput="onRestInput" />
+  </view>
+
+  <!-- Media -->
+  <view class="form-group">
+    <view class="form-label">示例视频/图片</view>
+    <view class="media-section">
+      <view class="media-preview" wx:if="{{form.media}}" bindtap="onPreviewMedia">
+        <image wx:if="{{form.media.type === 'image'}}" class="media-thumb" src="{{form.media.url}}" mode="aspectFill" />
+        <view wx:if="{{form.media.type === 'video'}}" class="video-thumb">
+          <text class="play-icon">▶</text>
+          <text class="media-type-label">视频</text>
+        </view>
+      </view>
+      <view class="media-add" bindtap="onChooseMedia">
+        <text class="media-add-icon" wx:if="{{!form.media}}">+</text>
+        <text class="media-add-text">{{form.media ? '更换媒体' : '添加图片或视频'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Save -->
+  <button class="btn-primary save-btn" bindtap="onSave">保存</button>
+</view>

@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- Search Bar -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索动作名称" value="{{keyword}}"
+        bindinput="onSearch" confirm-type="search" />
+      <view class="search-clear" wx:if="{{keyword}}" bindtap="onClearSearch">✕</view>
+    </view>
+  </view>
+
+  <!-- Stats -->
+  <view class="stats-bar">
+    <text class="stats-text" wx:if="{{!keyword}}">共 {{totalCount}} 个动作</text>
+    <text class="stats-text" wx:else>找到 {{filteredExercises.length}} 个动作</text>
+  </view>
+
+  <!-- Exercise List -->
+  <view class="exercise-list" wx:if="{{filteredExercises.length > 0}}">
+    <view class="ex-card" wx:for="{{filteredExercises}}" wx:key="id"
+      bindtap="onExerciseTap" data-id="{{item.id}}" data-day="{{item.dayIndex}}">
+      <view class="ex-card-left">
+        <!-- Media Thumbnail -->
+        <view class="ex-thumb" wx:if="{{item.media}}" catchtap="onMediaTap" data-media="{{item.media}}">
+          <image wx:if="{{item.media.type === 'image'}}" class="thumb-img" src="{{item.media.url}}" mode="aspectFill" />
+          <view wx:if="{{item.media.type === 'video'}}" class="thumb-video">
+            <text class="thumb-play">▶</text>
+          </view>
+        </view>
+        <view class="ex-thumb placeholder" wx:else>
+          <text class="thumb-placeholder-icon">🏋️</text>
+        </view>
+      </view>
+
+      <view class="ex-card-center">
+        <view class="ex-name">{{item.name}}</view>
+        <view class="ex-detail">
+          <text>{{item.sets}}组</text>
+          <text class="sep">·</text>
+          <text>{{item.reps}}次</text>
+          <text class="sep">·</text>
+          <text>{{item.weight}}</text>
+        </view>
+        <view class="ex-days">
+          <text class="day-tag" wx:for="{{item.usedDays}}" wx:for-item="d" wx:key="dayIndex">{{d.dayName}}</text>
+        </view>
+      </view>
+
+      <view class="ex-card-right">
+        <text class="ex-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Empty -->
+  <view class="empty-state" wx:if="{{filteredExercises.length === 0 && keyword}}">
+    <view class="empty-icon">🔍</view>
+    <view class="empty-text">没有找到「{{keyword}}」相关的动作</view>
+  </view>
+
+  <view class="empty-state" wx:if="{{filteredExercises.length === 0 && !keyword}}">
+    <view class="empty-icon">🏋️</view>
+    <view class="empty-text">还没有添加任何动作</view>
+    <navigator url="/pages/plan/plan" open-type="switchTab" class="btn-primary">去计划中添加</navigator>
+  </view>
+
+  <media-viewer show="{{showMedia}}" media="{{currentMedia}}" bind:close="onCloseMedia" />
+</view>

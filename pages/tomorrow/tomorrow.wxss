@@ -1,0 +1,73 @@
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.day-label {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: var(--color-primary-light);
+}
+
+.day-date {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.rest-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.rest-icon {
+  font-size: 96rpx;
+  margin-bottom: var(--spacing-md);
+}
+
+.rest-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--color-rest);
+  margin-bottom: var(--spacing-sm);
+}
+
+.rest-desc {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+}
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.train-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.train-count {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-card);
+  padding: 8rpx 20rpx;
+  border-radius: var(--radius-full);
+}
+
+.preview-hint {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.exercise-list {
+  margin-bottom: var(--spacing-lg);
+}

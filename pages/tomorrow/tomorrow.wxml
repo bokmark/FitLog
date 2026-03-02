@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- Header -->
+  <view class="day-header">
+    <view class="day-label">明天 · {{dayName}}</view>
+    <view class="day-date">{{tomorrow}}</view>
+  </view>
+
+  <!-- Rest Day -->
+  <view class="rest-card" wx:if="{{dayPlan && dayPlan.isRestDay}}">
+    <view class="rest-icon">😴</view>
+    <view class="rest-title">明天是休息日</view>
+    <view class="rest-desc">好好放松，充分恢复</view>
+  </view>
+
+  <!-- No Plan -->
+  <view class="empty-state" wx:if="{{!dayPlan}}">
+    <view class="empty-icon">📋</view>
+    <view class="empty-text">明天暂无训练计划</view>
+    <navigator url="/pages/plan/plan" open-type="switchTab" class="btn-primary">去设置计划</navigator>
+  </view>
+
+  <!-- Training Day -->
+  <block wx:if="{{dayPlan && !dayPlan.isRestDay}}">
+    <view class="train-header">
+      <view class="train-title">{{dayPlan.name}}</view>
+      <view class="train-count">{{dayPlan.exercises.length}} 个动作</view>
+    </view>
+
+    <view class="preview-hint">以下是明天的训练内容预览</view>
+
+    <view class="exercise-list">
+      <view wx:for="{{dayPlan.exercises}}" wx:key="id">
+        <exercise-card
+          exercise="{{item}}"
+          readonly="{{true}}"
+          expanded="{{false}}"
+          bind:mediatap="onMediaTap"
+        />
+      </view>
+    </view>
+  </block>
+
+  <media-viewer
+    show="{{showMedia}}"
+    media="{{currentMedia}}"
+    bind:close="onCloseMedia"
+  />
+</view>

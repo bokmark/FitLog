@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/plan/plan",
+    "pages/plan-edit/plan-edit",
+    "pages/exercise-edit/exercise-edit",
+    "pages/tomorrow/tomorrow",
+    "pages/exercises/exercises",
+    "pages/history/history"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1A1A2E",
+    "navigationBarTitleText": "FitLog",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#121225",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8E8EA0",
+    "selectedColor": "#FF6B35",
+    "backgroundColor": "#1A1A2E",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日训练",
+        "iconPath": "static/icons/today.png",
+        "selectedIconPath": "static/icons/today-active.png"
+      },
+      {
+        "pagePath": "pages/plan/plan",
+        "text": "我的计划",
+        "iconPath": "static/icons/plan.png",
+        "selectedIconPath": "static/icons/plan-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "打卡记录",
+        "iconPath": "static/icons/history.png",
+        "selectedIconPath": "static/icons/history-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

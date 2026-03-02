@@ -1,0 +1,122 @@
+.exercise-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+}
+
+.header-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.exercise-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8rpx;
+}
+
+.exercise-meta {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.meta-sep {
+  margin: 0 8rpx;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex-shrink: 0;
+}
+
+.media-badge {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: var(--color-bg-card-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+}
+
+.progress-badge {
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-full);
+  padding: 4rpx 16rpx;
+}
+
+.progress-text {
+  font-size: 22rpx;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.expand-arrow {
+  transition: transform 0.3s ease;
+  color: var(--color-text-muted);
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.expand-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.card-body {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rest-hint {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+  padding: 8rpx 16rpx;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.no-checkin .set-preview {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.no-checkin .set-preview:last-child {
+  border-bottom: none;
+}
+
+.set-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.set-detail {
+  font-size: 24rpx;
+  color: var(--color-text);
+}

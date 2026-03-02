@@ -1,0 +1,147 @@
+.plan-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.plan-name {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.plan-name-text {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.edit-icon {
+  font-size: 28rpx;
+  color: var(--color-text-muted);
+}
+
+.plan-hint {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  margin-top: 8rpx;
+}
+
+.quick-actions {
+  margin-bottom: var(--spacing-lg);
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: 16rpx;
+}
+
+.quick-action-icon {
+  font-size: 36rpx;
+}
+
+.quick-action-text {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.quick-action-arrow {
+  font-size: 36rpx;
+  color: var(--color-text-muted);
+  font-weight: bold;
+}
+
+.week-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.day-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  transition: all 0.2s ease;
+}
+
+.day-card.today {
+  border-left: 6rpx solid var(--color-primary);
+}
+
+.day-card.rest {
+  opacity: 0.6;
+}
+
+.day-card-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.day-card-label {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4rpx;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.day-card-label.today-label {
+  color: var(--color-primary);
+}
+
+.today-badge {
+  font-size: 20rpx;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 2rpx 12rpx;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+.day-card-name {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin-top: 4rpx;
+}
+
+.day-card-exercises {
+  margin-top: 4rpx;
+}
+
+.exercise-count {
+  font-size: 22rpx;
+  color: var(--color-text-muted);
+}
+
+.day-card-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex-shrink: 0;
+}
+
+.rest-toggle {
+  padding: 8rpx 20rpx;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-full);
+}
+
+.rest-toggle-text {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.arrow {
+  font-size: 36rpx;
+  color: var(--color-text-muted);
+  font-weight: bold;
+}

@@ -1,0 +1,78 @@
+<view class="container">
+  <!-- Header -->
+  <view class="day-header">
+    <view class="day-label">{{dayName}}</view>
+    <view class="day-date">{{today}}</view>
+  </view>
+
+  <!-- Rest Day -->
+  <view class="rest-card" wx:if="{{dayPlan && dayPlan.isRestDay}}">
+    <view class="rest-icon">😴</view>
+    <view class="rest-title">今天是休息日</view>
+    <view class="rest-desc">好好恢复，明天继续加油</view>
+    <view class="rest-actions">
+      <button class="btn-secondary tomorrow-btn" bindtap="onGoTomorrow">预览明天的训练</button>
+      <button class="btn-secondary edit-btn" bindtap="onEditPlan">编辑今日计划</button>
+    </view>
+  </view>
+
+  <!-- No Plan -->
+  <view class="empty-state" wx:if="{{!dayPlan}}">
+    <view class="empty-icon">📋</view>
+    <view class="empty-text">还没有训练计划</view>
+    <navigator url="/pages/plan/plan" open-type="switchTab" class="btn-primary">去创建计划</navigator>
+  </view>
+
+  <!-- Training Day -->
+  <block wx:if="{{dayPlan && !dayPlan.isRestDay}}">
+    <view class="train-header">
+      <view class="train-title">{{dayPlan.name}}</view>
+      <view class="train-header-right">
+        <view class="train-count">{{dayPlan.exercises.length}} 个动作</view>
+        <view class="edit-plan-btn" bindtap="onEditPlan">
+          <text class="edit-plan-icon">✎</text>
+          <text class="edit-plan-text">编辑</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Progress Bar -->
+    <view class="progress-section">
+      <view class="progress-bar-bg">
+        <view class="progress-bar-fill" style="width: {{progress.percent}}%"></view>
+      </view>
+      <view class="progress-info">
+        <text class="progress-label">完成进度</text>
+        <text class="progress-value">{{progress.completed}}/{{progress.total}} 组 ({{progress.percent}}%)</text>
+      </view>
+    </view>
+
+    <!-- Exercise List -->
+    <view class="exercise-list">
+      <view wx:for="{{dayPlan.exercises}}" wx:key="id" wx:for-index="idx">
+        <exercise-card
+          exercise="{{item}}"
+          checkinData="{{checkinRecord.exercises[idx]}}"
+          readonly="{{false}}"
+          expanded="{{expandedIndex === idx}}"
+          data-index="{{idx}}"
+          bind:settoggle="onSetToggle"
+          bind:setupdate="onSetUpdate"
+          bind:mediatap="onMediaTap"
+        />
+      </view>
+    </view>
+
+    <!-- Tomorrow Preview -->
+    <view class="tomorrow-entry" bindtap="onGoTomorrow">
+      <text class="tomorrow-text">预览明天的训练</text>
+      <text class="tomorrow-arrow">→</text>
+    </view>
+  </block>
+
+  <media-viewer
+    show="{{showMedia}}"
+    media="{{currentMedia}}"
+    bind:close="onCloseMedia"
+  />
+</view>

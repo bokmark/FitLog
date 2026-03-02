@@ -1,0 +1,251 @@
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.month-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.month-arrow {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: var(--color-primary);
+  font-weight: bold;
+  background: var(--color-bg-card);
+  border-radius: 50%;
+}
+
+.calendar {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: var(--spacing-sm);
+}
+
+.calendar-header-cell {
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+  padding: 8rpx 0;
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4rpx;
+}
+
+.calendar-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.calendar-cell.dimmed {
+  opacity: 0.3;
+}
+
+.calendar-cell.selected {
+  background: var(--color-primary);
+}
+
+.calendar-cell.selected .cell-day {
+  color: #fff;
+}
+
+.calendar-cell.is-today .cell-day {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.calendar-cell.selected.is-today .cell-day {
+  color: #fff;
+}
+
+.cell-day {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.cell-dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  margin-top: 4rpx;
+}
+
+.cell-dot.full, .legend-dot.full {
+  background: var(--color-success);
+}
+
+.cell-dot.partial, .legend-dot.partial {
+  background: var(--color-primary);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.legend-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+}
+
+.detail-section {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.detail-date {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.detail-day {
+  font-size: 26rpx;
+  color: var(--color-primary);
+}
+
+.detail-progress {
+  margin-bottom: var(--spacing-lg);
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 12rpx;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 8rpx;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.detail-exercises {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.detail-exercise {
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.de-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.de-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.de-status {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.de-sets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.de-set {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 6rpx 16rpx;
+  background: var(--color-bg-input);
+  border-radius: var(--radius-full);
+}
+
+.de-set.done {
+  background: rgba(76, 175, 80, 0.15);
+}
+
+.de-set-label {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+.de-set-check {
+  font-size: 22rpx;
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+.de-set-check.miss {
+  color: var(--color-text-muted);
+}
+
+.no-record {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--color-text-muted);
+  font-size: 28rpx;
+}
+
+.empty-prompt {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--color-text-muted);
+  font-size: 26rpx;
+}

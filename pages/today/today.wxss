@@ -1,0 +1,172 @@
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.day-label {
+  font-size: 44rpx;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.day-date {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.rest-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.rest-icon {
+  font-size: 96rpx;
+  margin-bottom: var(--spacing-md);
+}
+
+.rest-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--color-rest);
+  margin-bottom: var(--spacing-sm);
+}
+
+.rest-desc {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tomorrow-btn {
+  margin-top: var(--spacing-md);
+}
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.train-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.train-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.train-count {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-card);
+  padding: 8rpx 20rpx;
+  border-radius: var(--radius-full);
+}
+
+.edit-plan-btn {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 8rpx 20rpx;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  border: 2rpx solid var(--color-primary);
+}
+
+.edit-plan-icon {
+  font-size: 24rpx;
+  color: var(--color-primary);
+}
+
+.edit-plan-text {
+  font-size: 24rpx;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.rest-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-top: var(--spacing-md);
+}
+
+.edit-btn {
+  margin-top: 0;
+}
+
+.progress-section {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 16rpx;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+  min-width: 0%;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.progress-value {
+  font-size: 24rpx;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.exercise-list {
+  margin-bottom: var(--spacing-lg);
+}
+
+.tomorrow-entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tomorrow-text {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  margin-right: var(--spacing-sm);
+}
+
+.tomorrow-arrow {
+  color: var(--color-primary);
+  font-size: 32rpx;
+}

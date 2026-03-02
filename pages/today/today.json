@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "今日训练",
+  "usingComponents": {
+    "exercise-card": "../../components/exercise-card/exercise-card",
+    "media-viewer": "../../components/media-viewer/media-viewer"
+  }
+}

@@ -1,0 +1,54 @@
+<view class="exercise-card">
+  <view class="card-header" bindtap="onToggleExpand">
+    <view class="header-left">
+      <view class="exercise-name">{{exercise.name}}</view>
+      <view class="exercise-meta">
+        <text>{{exercise.sets}}组</text>
+        <text class="meta-sep">·</text>
+        <text>{{exercise.reps}}次</text>
+        <text class="meta-sep">·</text>
+        <text>{{exercise.weight}}</text>
+      </view>
+    </view>
+    <view class="header-right">
+      <view class="media-badge" wx:if="{{exercise.media}}" catchtap="onMediaTap">
+        <text wx:if="{{exercise.media.type === 'video'}}">▶</text>
+        <text wx:else>🖼</text>
+      </view>
+      <view class="progress-badge" wx:if="{{checkinData}}">
+        <text class="progress-text">{{completedSets}}/{{exercise.sets}}</text>
+      </view>
+      <view class="expand-arrow {{isExpanded ? 'expanded' : ''}}">
+        <text>›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card-body" wx:if="{{isExpanded}}">
+    <view class="rest-hint" wx:if="{{exercise.restSeconds > 0}}">
+      组间休息 {{exercise.restSeconds}}秒
+    </view>
+    <block wx:if="{{checkinData}}">
+      <set-checker
+        wx:for="{{checkinData.sets}}"
+        wx:key="*this"
+        wx:for-index="idx"
+        setIndex="{{idx}}"
+        setData="{{item}}"
+        reps="{{exercise.reps}}"
+        weight="{{exercise.weight}}"
+        readonly="{{readonly}}"
+        bind:toggle="onSetToggle"
+        bind:update="onSetUpdate"
+      />
+    </block>
+    <block wx:else>
+      <view class="no-checkin">
+        <view class="set-preview" wx:for="{{setsArray}}" wx:key="*this" wx:for-item="idx">
+          <text class="set-label">第{{idx + 1}}组</text>
+          <text class="set-detail">{{exercise.reps}}次 · {{exercise.weight}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

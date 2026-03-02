@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "所有动作",
+  "usingComponents": {
+    "media-viewer": "../../components/media-viewer/media-viewer"
+  }
+}

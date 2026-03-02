@@ -1,0 +1,20 @@
+<view class="set-row {{setData.completed ? 'completed' : ''}}">
+  <view class="set-index">第{{setIndex + 1}}组</view>
+  <view class="set-info">
+    <view class="set-target">{{reps}}次 · {{weight}}</view>
+    <view class="set-actual" wx:if="{{!readonly && setData.completed}}">
+      <input class="actual-input" type="text" placeholder="重量"
+        value="{{setData.actualWeight}}" bindinput="onWeightInput" />
+      <text class="dot">·</text>
+      <input class="actual-input" type="number" placeholder="次数"
+        value="{{setData.actualReps || ''}}" bindinput="onRepsInput" />
+      <text class="unit">次</text>
+    </view>
+  </view>
+  <view class="check-btn {{setData.completed ? 'checked' : ''}}" bindtap="onToggle" wx:if="{{!readonly}}">
+    <text wx:if="{{setData.completed}}">✓</text>
+  </view>
+  <view class="check-status" wx:if="{{readonly && setData.completed}}">
+    <text class="done-mark">✓</text>
+  </view>
+</view>

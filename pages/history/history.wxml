@@ -1,0 +1,82 @@
+<view class="container">
+  <!-- Month Selector -->
+  <view class="month-header">
+    <view class="month-arrow" bindtap="onPrevMonth">‹</view>
+    <view class="month-title">{{currentYear}}年{{currentMonth}}月</view>
+    <view class="month-arrow" bindtap="onNextMonth">›</view>
+  </view>
+
+  <!-- Calendar -->
+  <view class="calendar">
+    <view class="calendar-header">
+      <view class="calendar-header-cell" wx:for="{{weekHeaders}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="calendar-body">
+      <view
+        class="calendar-cell {{item.isCurrentMonth ? '' : 'dimmed'}} {{item.date === selectedDate ? 'selected' : ''}} {{item.date === today ? 'is-today' : ''}}"
+        wx:for="{{calendarDays}}"
+        wx:key="date"
+        bindtap="onDayTap"
+        data-date="{{item.date}}"
+      >
+        <text class="cell-day">{{item.day}}</text>
+        <view class="cell-dot full" wx:if="{{monthCheckins[item.date] && monthCheckins[item.date].percent === 100}}"></view>
+        <view class="cell-dot partial" wx:elif="{{monthCheckins[item.date] && monthCheckins[item.date].completed > 0}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Legend -->
+  <view class="legend">
+    <view class="legend-item">
+      <view class="legend-dot full"></view>
+      <text>全部完成</text>
+    </view>
+    <view class="legend-item">
+      <view class="legend-dot partial"></view>
+      <text>部分完成</text>
+    </view>
+  </view>
+
+  <!-- Selected Date Detail -->
+  <view class="detail-section" wx:if="{{selectedDate}}">
+    <view class="detail-header">
+      <text class="detail-date">{{selectedDate}}</text>
+      <text class="detail-day">{{selectedRecord ? selectedRecord.dayName : '无训练记录'}}</text>
+    </view>
+
+    <view class="detail-content" wx:if="{{selectedRecord}}">
+      <view class="detail-progress">
+        <view class="progress-bar-bg">
+          <view class="progress-bar-fill" style="width: {{selectedProgress.percent}}%"></view>
+        </view>
+        <text class="progress-text">{{selectedProgress.completed}}/{{selectedProgress.total}} 组 ({{selectedProgress.percent}}%)</text>
+      </view>
+
+      <view class="detail-exercises">
+        <view class="detail-exercise" wx:for="{{selectedRecord.exercises}}" wx:key="exerciseId">
+          <view class="de-header">
+            <text class="de-name">{{item.name}}</text>
+            <text class="de-status">{{item.completedCount}}/{{item.totalCount}} 组</text>
+          </view>
+          <view class="de-sets">
+            <view class="de-set {{set.completed ? 'done' : ''}}" wx:for="{{item.sets}}" wx:for-item="set" wx:for-index="si" wx:key="si">
+              <text class="de-set-label">第{{si + 1}}组</text>
+              <text class="de-set-check" wx:if="{{set.completed}}">✓</text>
+              <text class="de-set-check miss" wx:else>-</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="no-record" wx:if="{{!selectedRecord}}">
+      <text>该日无训练打卡记录</text>
+    </view>
+  </view>
+
+  <!-- Empty Prompt -->
+  <view class="empty-prompt" wx:if="{{!selectedDate}}">
+    <text>点击日历上的日期查看打卡详情</text>
+  </view>
+</view>

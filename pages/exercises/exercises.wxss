@@ -1,0 +1,150 @@
+.search-bar {
+  margin-bottom: var(--spacing-md);
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  padding: 16rpx 24rpx;
+  gap: 12rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--color-text);
+  height: 48rpx;
+}
+
+.search-clear {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg-card-light);
+  color: var(--color-text-secondary);
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.stats-bar {
+  margin-bottom: var(--spacing-md);
+}
+
+.stats-text {
+  font-size: 24rpx;
+  color: var(--color-text-muted);
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.ex-card {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.ex-card-left {
+  flex-shrink: 0;
+}
+
+.ex-thumb {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-card-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+}
+
+.thumb-video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-card-light);
+}
+
+.thumb-play {
+  font-size: 36rpx;
+  color: var(--color-primary);
+}
+
+.thumb-placeholder-icon {
+  font-size: 40rpx;
+  opacity: 0.4;
+}
+
+.ex-card-center {
+  flex: 1;
+  min-width: 0;
+}
+
+.ex-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ex-detail {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 8rpx;
+}
+
+.sep {
+  margin: 0 6rpx;
+}
+
+.ex-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.day-tag {
+  font-size: 20rpx;
+  color: var(--color-primary);
+  background: rgba(255, 107, 53, 0.12);
+  padding: 2rpx 14rpx;
+  border-radius: var(--radius-full);
+  line-height: 1.6;
+}
+
+.ex-card-right {
+  flex-shrink: 0;
+}
+
+.ex-arrow {
+  font-size: 36rpx;
+  color: var(--color-text-muted);
+  font-weight: bold;
+}

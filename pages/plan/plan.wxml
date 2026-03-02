@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- Plan Header -->
+  <view class="plan-header" wx:if="{{plan}}">
+    <view class="plan-name" bindtap="onRenamePlan">
+      <text class="plan-name-text">{{plan.name}}</text>
+      <text class="edit-icon">✎</text>
+    </view>
+    <view class="plan-hint">点击某天查看/编辑训练内容</view>
+  </view>
+
+  <!-- Empty State -->
+  <view class="empty-state" wx:if="{{!plan}}">
+    <view class="empty-icon">📋</view>
+    <view class="empty-text">暂无训练计划</view>
+  </view>
+
+  <!-- Quick Actions -->
+  <view class="quick-actions" wx:if="{{plan}}">
+    <view class="quick-action-btn" bindtap="onGoAllExercises">
+      <text class="quick-action-icon">🏋️</text>
+      <text class="quick-action-text">查看所有动作</text>
+      <text class="quick-action-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- Week Days -->
+  <view class="week-list" wx:if="{{plan}}">
+    <view
+      class="day-card {{plan.days[index].isRestDay ? 'rest' : ''}} {{todayIndex === index ? 'today' : ''}}"
+      wx:for="{{dayNames}}"
+      wx:key="*this"
+      wx:for-index="index"
+      bindtap="onDayTap"
+      data-day="{{index}}"
+    >
+      <view class="day-card-left">
+        <view class="day-card-label {{todayIndex === index ? 'today-label' : ''}}">
+          {{item}}
+          <text class="today-badge" wx:if="{{todayIndex === index}}">今天</text>
+        </view>
+        <view class="day-card-name" wx:if="{{plan.days[index]}}">
+          {{plan.days[index].isRestDay ? '休息日' : (plan.days[index].name || '未安排')}}
+        </view>
+        <view class="day-card-exercises" wx:if="{{plan.days[index] && !plan.days[index].isRestDay && plan.days[index].exercises.length > 0}}">
+          <text class="exercise-count">{{plan.days[index].exercises.length}} 个动作</text>
+        </view>
+      </view>
+      <view class="day-card-right">
+        <view class="rest-toggle" catchtap="onToggleRestDay" data-day="{{index}}">
+          <text class="rest-toggle-text">{{plan.days[index].isRestDay ? '取消休息' : '设为休息'}}</text>
+        </view>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+  </view>
+</view>

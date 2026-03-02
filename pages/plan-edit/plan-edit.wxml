@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="page-header">
+    <view class="page-title">{{dayName}} 训练安排</view>
+  </view>
+
+  <!-- Day Name -->
+  <view class="card name-card">
+    <view class="form-label">训练主题</view>
+    <view class="name-row">
+      <input class="form-input" value="{{dayPlan.name}}" placeholder="如：胸 + 三头"
+        bindinput="onDayNameInput" bindblur="onSaveDayName" />
+    </view>
+  </view>
+
+  <!-- Exercise List -->
+  <view class="section-title">动作列表 ({{dayPlan.exercises.length}})</view>
+
+  <view class="exercise-list" wx:if="{{dayPlan.exercises.length > 0}}">
+    <view class="edit-exercise-card" wx:for="{{dayPlan.exercises}}" wx:key="id" wx:for-index="idx">
+      <view class="edit-card-main" bindtap="onEditExercise" data-id="{{item.id}}">
+        <view class="edit-card-order">{{idx + 1}}</view>
+        <view class="edit-card-info">
+          <view class="edit-card-name">{{item.name}}</view>
+          <view class="edit-card-detail">
+            {{item.sets}}组 · {{item.reps}}次 · {{item.weight}}
+          </view>
+          <view class="edit-card-media" wx:if="{{item.media}}">
+            <text wx:if="{{item.media.type === 'video'}}">▶ 有示例视频</text>
+            <text wx:else>🖼 有示例图片</text>
+          </view>
+        </view>
+        <text class="edit-arrow">›</text>
+      </view>
+      <view class="edit-card-actions">
+        <view class="action-btn move-btn" bindtap="onMoveUp" data-index="{{idx}}" wx:if="{{idx > 0}}">↑</view>
+        <view class="action-btn move-btn" bindtap="onMoveDown" data-index="{{idx}}" wx:if="{{idx < dayPlan.exercises.length - 1}}">↓</view>
+        <view class="action-btn delete-btn" bindtap="onDeleteExercise" data-id="{{item.id}}" data-name="{{item.name}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-hint" wx:if="{{dayPlan.exercises.length === 0}}">
+    <text>还没有添加任何动作</text>
+  </view>
+
+  <!-- Add Button -->
+  <button class="btn-primary add-btn" bindtap="onAddExercise">+ 添加动作</button>
+</view>

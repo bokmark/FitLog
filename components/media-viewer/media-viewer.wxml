@@ -1,0 +1,25 @@
+<view class="viewer-mask" wx:if="{{show}}" bindtap="onMaskTap">
+  <view class="viewer-content" catchtap="preventBubble">
+    <view class="viewer-header">
+      <text class="viewer-title">动作示例</text>
+      <view class="close-btn" bindtap="onClose">✕</view>
+    </view>
+    <view class="viewer-body">
+      <image
+        wx:if="{{media && media.type === 'image'}}"
+        class="media-image"
+        src="{{media.url}}"
+        mode="aspectFit"
+      />
+      <video
+        wx:if="{{media && media.type === 'video'}}"
+        class="media-video"
+        src="{{media.url}}"
+        controls
+        autoplay
+        show-center-play-btn
+        object-fit="contain"
+      />
+    </view>
+  </view>
+</view>
