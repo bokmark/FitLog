@@ -64,5 +64,25 @@
     <navigator url="/pages/plan/plan" open-type="switchTab" class="btn-primary">去计划中添加</navigator>
   </view>
 
+  <!-- FAB Add Button -->
+  <view class="fab" bindtap="onAddTap">
+    <text class="fab-icon">+</text>
+  </view>
+
+  <!-- Day Picker Popup -->
+  <view class="picker-mask" wx:if="{{showDayPicker}}" bindtap="onClosePicker">
+    <view class="picker-sheet" catchtap="">
+      <view class="picker-title">添加到哪一天？</view>
+      <view class="picker-list">
+        <view class="picker-item" wx:for="{{dayOptions}}" wx:key="dayIndex"
+          bindtap="onPickDay" data-day="{{item.dayIndex}}">
+          <text>{{item.label}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </view>
+      <view class="picker-cancel" bindtap="onClosePicker">取消</view>
+    </view>
+  </view>
+
   <media-viewer show="{{showMedia}}" media="{{currentMedia}}" bind:close="onCloseMedia" />
 </view>

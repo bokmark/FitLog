@@ -1,7 +1,16 @@
 {
   "description": "FitLog 健身计划小程序",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": ".git"
+      },
+      {
+        "type": "folder",
+        "value": ".cursor"
+      }
+    ],
     "include": []
   },
   "setting": {

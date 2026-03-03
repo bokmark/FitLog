@@ -2,22 +2,25 @@ page {
   --color-primary: #FF6B35;
   --color-primary-light: #FF8F65;
   --color-primary-dark: #E55A25;
-  --color-bg: #121225;
-  --color-bg-card: #1A1A2E;
-  --color-bg-card-light: #222240;
-  --color-bg-input: #2A2A45;
-  --color-text: #EAEAF0;
-  --color-text-secondary: #8E8EA0;
-  --color-text-muted: #5A5A70;
-  --color-success: #4CAF50;
-  --color-success-light: #66BB6A;
-  --color-danger: #F44336;
-  --color-border: #2E2E48;
+  --color-bg: #F2F3F8;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-light: #F0F1F6;
+  --color-bg-input: #EDEEF4;
+  --color-text: #1C1C2E;
+  --color-text-secondary: #6E6E82;
+  --color-text-muted: #A5A5B8;
+  --color-success: #34C759;
+  --color-success-light: #5DD47A;
+  --color-danger: #FF3B30;
+  --color-border: #E5E5EE;
   --color-rest: #7C4DFF;
 
-  --radius-sm: 8rpx;
-  --radius-md: 16rpx;
-  --radius-lg: 24rpx;
+  --shadow-card: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 28rpx;
   --radius-full: 999rpx;
 
   --spacing-xs: 8rpx;
@@ -43,6 +46,7 @@ page {
   border-radius: var(--radius-md);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-card);
 }
 
 .btn-primary {
@@ -62,7 +66,7 @@ page {
 }
 
 .btn-secondary {
-  background: var(--color-bg-card-light);
+  background: var(--color-bg-card);
   color: var(--color-text);
   border: 2rpx solid var(--color-border);
   border-radius: var(--radius-full);
@@ -70,6 +74,7 @@ page {
   font-size: 28rpx;
   text-align: center;
   line-height: 1.5;
+  box-shadow: var(--shadow-card);
 }
 
 .btn-secondary::after {
